@@ -10,16 +10,32 @@ namespace ReadingList.Models
     public class Lection
     {
         public int LectionId { get; set; }
+
+        [Required]
         public int UserBookId { get; set; }
+
+        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateStarted { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateFinished { get; set; }
+        public DateTime? DateFinished { get; set; }
+
+        [Required]
         public string Format { get; set; }
+        
+        [Required]
         public string Language { get; set; }
-        public int Rating { get; set; }
+
+        public Lection()
+        {
+            Language = "English";
+        }
+
+        [DisplayFormat(NullDisplayText = "Not rated")]
+        public int? Rating { get; set; }
 
         public virtual UserBook UserBook { get; set; }
     }
