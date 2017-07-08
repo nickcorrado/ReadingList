@@ -12,7 +12,7 @@ namespace ReadingList.Models
         public int UserId { get; set; }
         public int BookId { get; set; }
         public int Status { get; set; }
-        public int Priority { get; set; }
+        public int? Priority { get; set; }
         public int? Rating { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
