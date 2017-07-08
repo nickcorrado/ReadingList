@@ -9,6 +9,7 @@ namespace ReadingList.Models
     {
         public int BookId { get; set; }
         public string Title { get; set; }
+        public string PublicationType { get; set; }
         
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }
         public virtual ICollection<UserBook> UserBooks { get; set; }

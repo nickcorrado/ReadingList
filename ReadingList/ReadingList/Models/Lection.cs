@@ -5,6 +5,7 @@ using System.Web;
 
 namespace ReadingList.Models
 {
+    //An obscure word meaning an act of reading.
     public class Lection
     {
         public int LectionId { get; set; }
