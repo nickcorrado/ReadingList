@@ -11,7 +11,7 @@ namespace ReadingList.Models
         public int UserId { get; set; }
         public int BookId { get; set; }
         public int Status { get; set; }
-        public int Priority { get; set; }
+        public int? Priority { get; set; }
         public int? Rating { get; set; }
         public DateTime DateAdded { get; set; }
 
