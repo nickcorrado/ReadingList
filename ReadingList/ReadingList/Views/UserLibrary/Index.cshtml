@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ReadingList.Models.UserBook>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My Library";
 }
 
 <h2>Index</h2>
@@ -14,9 +14,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Book.Title)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.UserId)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
@@ -37,9 +37,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Book.Title)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.UserId)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
