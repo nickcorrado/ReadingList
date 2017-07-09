@@ -18,6 +18,13 @@ namespace ReadingList
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //Not sure whether this will work
+            routes.MapRoute(
+                name: "User",
+                url: "my/{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }
