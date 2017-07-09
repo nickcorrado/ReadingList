@@ -6,6 +6,7 @@ using System.Web;
 
 namespace ReadingList.Models
 {
+    //A workaround to have Displayable enum values
     public enum Status
     {
         [Display(Name = "Unread")]
@@ -30,6 +31,7 @@ namespace ReadingList.Models
         [Required]
         public Status Status { get; set; }
 
+        [Range(1,int.MaxValue)]
         public int? Priority { get; set; }
 
         [DisplayFormat(NullDisplayText = "Not rated")]
