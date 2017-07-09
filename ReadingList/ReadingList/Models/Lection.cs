@@ -29,11 +29,16 @@ namespace ReadingList.Models
         [Required]
         public string Language { get; set; }
 
+        //Max is just a placeholder
+        [Range(1, 10000)]
+        public int? PageCount { get; set; }
+
         public Lection()
         {
             Language = "English";
         }
 
+        [Range(0, 5, ErrorMessage = "Rating must be between 0 and 5.")]
         [DisplayFormat(NullDisplayText = "Not rated")]
         public int? Rating { get; set; }
 

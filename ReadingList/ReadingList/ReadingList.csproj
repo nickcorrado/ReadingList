@@ -180,6 +180,7 @@
     <Compile Include="Models\BookAuthor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Lection.cs" />
+    <Compile Include="Models\LibraryViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\UserBook.cs" />

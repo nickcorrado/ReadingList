@@ -35,7 +35,7 @@ namespace ReadingList.Models
         public int? Priority { get; set; }
 
         [DisplayFormat(NullDisplayText = "Not rated")]
-        public int? Rating { get; set; }
+        public float? Rating { get; set; }
         
         [Required]
         [DataType(DataType.Date)]
