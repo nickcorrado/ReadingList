@@ -6,6 +6,17 @@ using System.Web;
 
 namespace ReadingList.Models
 {
+    public enum Status
+    {
+        [Display(Name = "Unread")]
+        Unread,
+        [Display(Name = "Have read")]
+        Read,
+        [Display(Name = "Will reread")]
+        WillReread
+    }
+
+
     public class UserBook
     {
         public int UserBookId { get; set; }
@@ -17,7 +28,7 @@ namespace ReadingList.Models
         public int BookId { get; set; }
 
         [Required]
-        public int Status { get; set; }
+        public Status Status { get; set; }
 
         public int? Priority { get; set; }
 
