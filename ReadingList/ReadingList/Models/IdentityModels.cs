@@ -32,6 +32,7 @@ namespace ReadingList.Models
         public DbSet<BookAuthor> BookAuthors { get; set; }
         public DbSet<UserBookTag> UserBookTags { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<Lection> Lections { get; set; }
 
         public static ApplicationDbContext Create()
         {

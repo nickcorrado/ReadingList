@@ -10,18 +10,18 @@ using ReadingList.Models;
 
 namespace ReadingList.Controllers
 {
-    public class UserLibraryController : Controller
+    public class LibraryController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: UserLibrary
+        // GET: Library
         public ActionResult Index()
         {
             var userBooks = db.UserBooks.Include(u => u.Book);
             return View(userBooks.ToList());
         }
 
-        // GET: UserLibrary/Details/5
+        // GET: Library/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,14 +36,14 @@ namespace ReadingList.Controllers
             return View(userBook);
         }
 
-        // GET: UserLibrary/Create
+        // GET: Library/Create
         public ActionResult Create()
         {
             ViewBag.BookId = new SelectList(db.Books, "BookId", "Title");
             return View();
         }
 
-        // POST: UserLibrary/Create
+        // POST: Library/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -61,7 +61,7 @@ namespace ReadingList.Controllers
             return View(userBook);
         }
 
-        // GET: UserLibrary/Edit/5
+        // GET: Library/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,7 +77,7 @@ namespace ReadingList.Controllers
             return View(userBook);
         }
 
-        // POST: UserLibrary/Edit/5
+        // POST: Library/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -94,7 +94,7 @@ namespace ReadingList.Controllers
             return View(userBook);
         }
 
-        // GET: UserLibrary/Delete/5
+        // GET: Library/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,7 +109,7 @@ namespace ReadingList.Controllers
             return View(userBook);
         }
 
-        // POST: UserLibrary/Delete/5
+        // POST: Library/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
