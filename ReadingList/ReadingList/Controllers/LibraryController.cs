@@ -18,9 +18,19 @@ namespace ReadingList.Controllers
         // GET: Library
         public ActionResult Index()
         {
-            //I only want the current user's library!
-            var userBooks = db.UserBooks.Include(u => u.Book).Where<UserBook>(m => m.UserId == int.Parse(User.Identity.GetUserId()));
-            return View(userBooks.ToList());
+            int userId;
+            if (int.TryParse(User.Identity.GetUserId(), out userId))
+            {
+                //I only want the current user's library!
+                var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
+                return View(userBooks.ToList());
+            }
+            else
+            {
+                //Return all user books; this is just a placeholder
+                var userBooks = db.UserBooks.Include(u => u.Book);
+                return View(userBooks.ToList());
+            }
         }
 
         // GET: Library/Details/5
