@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ReadingList.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ReadingList.Controllers
 {
@@ -17,7 +18,8 @@ namespace ReadingList.Controllers
         // GET: Library
         public ActionResult Index()
         {
-            var userBooks = db.UserBooks.Include(u => u.Book);
+            //I only want the current user's library!
+            var userBooks = db.UserBooks.Include(u => u.Book).Where<UserBook>(m => m.UserId == int.Parse(User.Identity.GetUserId()));
             return View(userBooks.ToList());
         }
 
