@@ -15,6 +15,7 @@
         <h4>New Book</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @* We don't want these to actually appear on the form. *@
         @*<div class="form-group">
             @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -30,6 +31,18 @@
                 @Html.ValidationMessageFor(model => model.BookId, "", new { @class = "text-danger" })
             </div>
         </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Title, Model.Title, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger"})
+            </div>
+            <div class="col-md-2">
+                <input id="txtAddNewBook" type="text" />
+                <input id="btnAddNewBook" type="button" value="AddNewBook" class="btn" />
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })

@@ -27,9 +27,12 @@ namespace ReadingList.Controllers
             }
             else
             {
-                //Return all user books; this is just a placeholder
-                var userBooks = db.UserBooks.Include(u => u.Book);
-                return View(userBooks.ToList());
+                //Redirects to home page; probably want to redirect to another page or Register instead?
+                return RedirectToRoute(new
+                {
+                    controller = "Home",
+                    action = "Index"
+                });
             }
         }
 
