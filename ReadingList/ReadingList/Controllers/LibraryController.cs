@@ -22,8 +22,10 @@ namespace ReadingList.Controllers
             if (int.TryParse(User.Identity.GetUserId(), out userId))
             {
                 //I only want the current user's library!
-                var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
-                return View(userBooks.ToList());
+                //var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
+                //return View(userBooks.ToList());
+                var library = db.Libraries.Where(m => m.UserId == userId);
+                return View(library.ToList());
             }
             else
             {
