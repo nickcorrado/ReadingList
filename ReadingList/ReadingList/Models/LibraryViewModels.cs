@@ -5,6 +5,7 @@ using System.Web;
 
 namespace ReadingList.Models
 {
+    //These might be pointless; man do I feel foolish now
     public class LibraryViewModel
     {
         //public IEnumerable<UserBook> UserBooks { get; set; }

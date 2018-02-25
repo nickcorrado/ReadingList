@@ -22,16 +22,18 @@ namespace ReadingList.Controllers
             if (int.TryParse(User.Identity.GetUserId(), out userId))
             {
                 //I only want the current user's library!
-                //var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
-                //return View(userBooks.ToList());
-                var library = db.Libraries.Where(m => m.UserId == userId);
+                var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
+                return View(userBooks.ToList());
+                
+                //Disregard this; I was failing to use the model's collections properly. I'm a moron.
+                //var library = db.Libraries.Where(m => m.UserId == userId);
                 //I think we need to map from the model to the viewmodel by instantiating the viewmodel and then filling its properties.
-                var library2 = new LibraryViewModel
-                {
-                    UserBookId = 123 //need to map the data from userId's stuff onto this, I guess? sounds like a job for linq
-                };
+                //var library2 = new LibraryViewModel
+                //{
+                //    UserBookId = 123
+                //};
 
-                return View(library.ToList());
+                //return View(library.ToList());
             }
             else
             {

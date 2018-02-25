@@ -33,7 +33,7 @@ namespace ReadingList.Models
         public DbSet<UserBookTag> UserBookTags { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Lection> Lections { get; set; }
-        public DbSet<LibraryViewModels> Libraries { get; set; }
+        //public DbSet<LibraryViewModels> Libraries { get; set; }
 
         public static ApplicationDbContext Create()
         {

@@ -29,6 +29,12 @@
         <th>
             @Html.DisplayNameFor(model => model.DateAdded)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.PublicationType)
+        </th>
         <th></th>
     </tr>
 
@@ -51,6 +57,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateAdded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.PublicationType)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserBookId }) |
