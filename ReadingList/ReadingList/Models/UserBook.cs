@@ -23,7 +23,7 @@ namespace ReadingList.Models
         public int UserBookId { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         [Required]
         public int BookId { get; set; }

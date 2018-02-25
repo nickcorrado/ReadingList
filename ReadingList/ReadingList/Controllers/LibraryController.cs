@@ -16,34 +16,34 @@ namespace ReadingList.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Library
+        [Authorize]
         public ActionResult Index()
         {
-            int userId;
-            if (int.TryParse(User.Identity.GetUserId(), out userId))
-            {
-                //I only want the current user's library!
-                var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
-                return View(userBooks.ToList());
-                
-                //Disregard this; I was failing to use the model's collections properly. I'm a moron.
-                //var library = db.Libraries.Where(m => m.UserId == userId);
-                //I think we need to map from the model to the viewmodel by instantiating the viewmodel and then filling its properties.
-                //var library2 = new LibraryViewModel
-                //{
-                //    UserBookId = 123
-                //};
+            string userId = User.Identity.GetUserId();
+            //I only want the current user's library!
+            var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
+            return View(userBooks.ToList());
 
-                //return View(library.ToList());
-            }
-            else
-            {
-                //Redirects to home page; probably want to redirect to another page or Register instead?
-                return RedirectToRoute(new
-                {
-                    controller = "Home",
-                    action = "Index"
-                });
-            }
+            //Disregard this; I was failing to use the model's collections properly. I'm a moron.
+            //var library = db.Libraries.Where(m => m.UserId == userId);
+            //I think we need to map from the model to the viewmodel by instantiating the viewmodel and then filling its properties.
+            //var library2 = new LibraryViewModel
+            //{
+            //    UserBookId = 123
+            //};
+
+            //return View(library.ToList());
+            
+            //else
+            //{
+            //    //unnecessary now with [Authorize] attribute on
+            //    //Redirects to home page; probably want to redirect to another page or Register instead?
+            //    return RedirectToRoute(new
+            //    {
+            //        controller = "Home",
+            //        action = "Index"
+            //    });
+            //}
         }
 
         // GET: Library/Details/5
