@@ -1,11 +1,10 @@
-﻿@*@model ReadingList.Models.UserBook*@
-@model ReadingList.Models.LibraryCreateViewModel
+﻿@model ReadingList.Models.UserBook
 
 @{
-    ViewBag.Title = "Add Book";
+    ViewBag.Title = "Add a Book";
 }
 
-<h2>Create</h2>
+<h2>@ViewBag.Title</h2>
 
 
 @using (Html.BeginForm()) 
@@ -13,43 +12,53 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>New Book</h4>
+        <h4>User Book</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @* We don't want these to actually appear on the form. *@
         @*<div class="form-group">
-            @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.UserId, "UserId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("UserId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.BookId, "BookId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("BookId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("BookId", (SelectList)ViewBag.BookId, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.BookId, "", new { @class = "text-danger" })
             </div>
         </div>*@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Book.Title, "Title", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Title, Model.Title, new { @class = "form-control"})
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger"})
+                @Html.EditorFor(model => model.Book.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Book.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Book.PublicationType, "Publication Type", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.Book.PublicationType, (SelectList)ViewBag.PublicationTypes, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Book.PublicationType, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2">
-                <input id="txtAddNewBook" type="text" />
-                <input id="btnAddNewBook" type="button" value="AddNewBook" class="btn" />
+                <input type="button" value="Add new" class="btn btn-default" />
+            </div>
+            <br />
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Book.PublicationType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Book.PublicationType, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Status, new { @class = "form-control"})
-                @*@Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -70,13 +79,13 @@
             </div>
         </div>
 
-        @*<div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.DateAdded, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DateAdded, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DateAdded, "", new { @class = "text-danger" })
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
