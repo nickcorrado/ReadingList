@@ -177,7 +177,7 @@ namespace ReadingList.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(int userId, string code)
         {
-            if (userId == default || code == null)
+            if (userId == default(int) || code == null)
             {
                 return View("Error");
             }
@@ -288,7 +288,7 @@ namespace ReadingList.Controllers
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
-            if (userId == default)
+            if (userId == default(int))
             {
                 return View("Error");
             }
