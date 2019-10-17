@@ -19,7 +19,7 @@ namespace ReadingList.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            string userId = User.Identity.GetUserId();
+            var userId = User.Identity.GetUserId<int>();
             var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
             return View(userBooks.ToList());
         }
