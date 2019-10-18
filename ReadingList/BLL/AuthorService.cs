@@ -17,11 +17,28 @@ namespace BLL
             return authors;
         }
 
+        public Author GetAuthor(int id)
+        {
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+            var author = dbContext.Authors.Find(id);
+            return author;
+        }
+
         public void Insert(Author author)
         {
             ApplicationDbContext dbContext = new ApplicationDbContext();
             author.CreateDate = DateTime.Now;
             dbContext.Authors.Add(author);
+        }
+
+        public void Delete(int id)
+        {
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+            var author = dbContext.Authors.Find(id);
+            if (author != null)
+            {
+                dbContext.Authors.Remove(author);
+            }
         }
     }
 }
