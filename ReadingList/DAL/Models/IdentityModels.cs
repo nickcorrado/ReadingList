@@ -5,7 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace ReadingList.Models
+namespace DAL.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     //Changed to an integer key; see https://docs.microsoft.com/en-us/aspnet/identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
@@ -54,7 +54,6 @@ namespace ReadingList.Models
         public DbSet<UserBookTag> UserBookTags { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Lection> Lections { get; set; }
-        //public DbSet<LibraryViewModels> Libraries { get; set; }
 
         public static ApplicationDbContext Create()
         {
