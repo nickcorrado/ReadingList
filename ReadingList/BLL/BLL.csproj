@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AuthorService.cs" />
     <Compile Include="IdentityService.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

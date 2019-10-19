@@ -19,12 +19,14 @@ namespace DAL.Models
         //[Display(Name = "Last Name")]
         //[StringLength(35, ErrorMessage = "Last name cannot be longer than 35 characters.")]
         [Required]
+        [StringLength(35)]
         public string LastName { get; set; }
 
         //[Required]
         //[Display(Name = "First Name")]
         //[StringLength(35, ErrorMessage = "First name cannot be longer than 35 characters.")]
         [Required]
+        [StringLength(35)]
         public string FirstName { get; set; }
 
         [Required]
