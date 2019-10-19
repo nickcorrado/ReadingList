@@ -56,6 +56,7 @@
     <Compile Include="Configurations\ClaimConfiguration.cs" />
     <Compile Include="Configurations\ExternalLoginConfiguration.cs" />
     <Compile Include="Configurations\RoleConfiguration.cs" />
+    <Compile Include="Configurations\TagConfiguration.cs" />
     <Compile Include="Configurations\UserBookConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Repositories\ExternalLoginRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
