@@ -40,13 +40,6 @@ namespace DAL.Entities
         //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateAdded { get; set; }
 
-        //A workaround for setting a default value, which
-        //is not currently supported in EF6.
-        //public UserBook()
-        //{
-        //    DateAdded = DateTime.Now;
-        //}
-
         public virtual User User { get; set; }
         public virtual Book Book { get; set; }
         public virtual ICollection<UserBookTag> UserBookTags { get; set; }

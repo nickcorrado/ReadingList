@@ -14,9 +14,9 @@ namespace DAL.Entities
     public class BookAuthor
     {
         public int BookAuthorId { get; set; }
-        [Required]
+        //[Required]
         public int BookId { get; set; }
-        [Required]
+        //[Required]
         public int AuthorId { get; set; }
         //[Required]
         //public Role Role { get; set; }

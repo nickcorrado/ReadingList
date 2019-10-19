@@ -32,10 +32,10 @@ namespace Data.Configurations
                 .HasColumnType("int")
                 .IsOptional();
 
-            //how do I set decimal precision?
+            //how do I set decimal precision of a nullable float?
             Property(x => x.Rating)
                 .HasColumnName("Rating")
-                .HasColumnType("decimal")
+                .HasColumnType("float")
                 .IsOptional();
 
             //relationships go here

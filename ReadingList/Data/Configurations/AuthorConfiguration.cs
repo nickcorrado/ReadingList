@@ -39,6 +39,11 @@ namespace Data.Configurations
                 .HasColumnType("datetime2")
                 .HasPrecision(7)
                 .IsRequired();
+
+            //like this?
+            HasMany(x => x.BookAuthors)
+                .WithRequired(x => x.Author)
+                .HasForeignKey(x => x.AuthorId);
         }
     }
 }

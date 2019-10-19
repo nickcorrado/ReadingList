@@ -15,9 +15,13 @@ namespace Data
         {
         }
 
+        //why no Claims?
         internal IDbSet<User> Users { get; set; }
         internal IDbSet<Role> Roles { get; set; }
         internal IDbSet<ExternalLogin> ExternalLogins { get; set; }
+
+        internal IDbSet<Author> Authors { get; set; }
+        internal IDbSet<Tag> Tags { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -25,6 +29,10 @@ namespace Data
             modelBuilder.Configurations.Add(new RoleConfiguration());
             modelBuilder.Configurations.Add(new ExternalLoginConfiguration());
             modelBuilder.Configurations.Add(new ClaimConfiguration());
+
+            modelBuilder.Configurations.Add(new AuthorConfiguration());
+            modelBuilder.Configurations.Add(new TagConfiguration());
+            modelBuilder.Configurations.Add(new UserBookConfiguration());
         }
     }
 }

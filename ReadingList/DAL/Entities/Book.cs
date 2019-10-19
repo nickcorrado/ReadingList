@@ -10,11 +10,11 @@ namespace DAL.Entities
     {
         public int BookId { get; set; }
 
-        [Required]
-        [StringLength(120, ErrorMessage = "Book title cannot be longer than 120 characters.")]
+        //[Required]
+        //[StringLength(120, ErrorMessage = "Book title cannot be longer than 120 characters.")]
         public string Title { get; set; }
 
-        [Required]
+        //[Required]
         public string PublicationType { get; set; }
         
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }
