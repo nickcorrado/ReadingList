@@ -18,6 +18,7 @@ namespace Data.Configurations
                 .Property(x => x.RoleId)
                 .HasColumnName("RoleId")
                 .HasColumnType("int")
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
                 .IsRequired();
 
             Property(x => x.Name)
