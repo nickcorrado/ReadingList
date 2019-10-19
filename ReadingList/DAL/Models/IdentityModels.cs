@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.ComponentModel.DataAnnotations;
 
 namespace DAL.Models
 {
@@ -15,9 +16,18 @@ namespace DAL.Models
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+
             // Add custom user claims here
             return userIdentity;
         }
+
+        [Required]
+        [StringLength(35)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(35)]
+        public string LastName { get; set; }
     }
 
     public class CustomUserRole : IdentityUserRole<int> { }

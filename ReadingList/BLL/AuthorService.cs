@@ -14,33 +14,45 @@ namespace BLL
     {
         public IList<Author> GetAuthors()
         {
-            var dbContext = new ApplicationDbContext();
-            var authors = dbContext.Authors.ToList();
-            return authors;
+            using (var dbContext = new ApplicationDbContext())
+            {
+                var authors = dbContext.Authors.ToList();
+                return authors;
+            }
         }
 
         public Author GetAuthor(int id)
         {
-            var dbContext = new ApplicationDbContext();
-            var author = dbContext.Authors.Find(id);
-            return author;
-        }
-
-        public void Insert(Author author)
-        {
-            var dbContext = new ApplicationDbContext();
-            author.CreateDate = DateTime.Now;
-            dbContext.Authors.Add(author);
-        }
-
-        public void Delete(int id)
-        {
-            var dbContext = new ApplicationDbContext();
-            var author = dbContext.Authors.Find(id);
-            if (author != null)
+            using (var dbContext = new ApplicationDbContext())
             {
-                dbContext.Authors.Remove(author);
+                var author = dbContext.Authors.Find(id);
+                return author;
             }
+        }
+
+        public int Insert(Author author)
+        {
+            using (var dbContext = new ApplicationDbContext())
+            {
+                author.CreateDate = DateTime.Now;
+                dbContext.Authors.Add(author);
+                return dbContext.SaveChanges();
+            }
+        }
+
+        public int Delete(int id)
+        {
+            using (var dbContext = new ApplicationDbContext())
+            {
+                var author = dbContext.Authors.Find(id);
+                if (author != null)
+                {
+                    dbContext.Authors.Remove(author);
+                    return dbContext.SaveChanges();
+                }
+            }
+            //no such record
+            return 0;
         }
     }
 }
