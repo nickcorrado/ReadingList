@@ -13,8 +13,8 @@ namespace DAL.Repositories
         Book FindByTitle(string title);
         Task<Book> FindByTitleAsync(string title);
         Task<Book> FindByTitleAsync(CancellationToken cancellationToken, string title);
-        IList<Book> FindLikeTitle(string title);
-        Task<IList<Book>> FindLikeTitleAsync(string title);
-        Task<IList<Book>> FindLikeTitleAsync(CancellationToken cancellationToken, string title);
+        List<Book> FindLikeTitle(string title);
+        Task<List<Book>> FindLikeTitleAsync(string title);
+        Task<List<Book>> FindLikeTitleAsync(CancellationToken cancellationToken, string title);
     }
 }
