@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace DAL.Models
+namespace DAL.Entities
 {
-    public enum Role
-    {
-        Author, Editor, Compiler, Translator
-    }
+    //public enum Role
+    //{
+    //    Author, Editor, Compiler, Translator
+    //}
 
     public class BookAuthor
     {
@@ -18,8 +18,8 @@ namespace DAL.Models
         public int BookId { get; set; }
         [Required]
         public int AuthorId { get; set; }
-        [Required]
-        public Role Role { get; set; }
+        //[Required]
+        //public Role Role { get; set; }
 
         public virtual Book Book { get; set; }
         public virtual Author Author { get; set; }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace DAL.Models
+namespace DAL.Entities
 {
     //A workaround to have Displayable enum values
     public enum Status
@@ -49,7 +49,7 @@ namespace DAL.Models
             DateAdded = DateTime.Now;
         }
 
-        public virtual ApplicationUser User { get; set; }
+        public virtual User User { get; set; }
         public virtual Book Book { get; set; }
         public virtual ICollection<UserBookTag> UserBookTags { get; set; }
         public virtual ICollection<Lection> Lections { get; set; }

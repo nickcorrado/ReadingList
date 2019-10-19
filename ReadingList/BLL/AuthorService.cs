@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Models;
+using DAL.Entities;
 
 namespace BLL
 {
-    //None of this is final code; just getting a sense of how a BLL works
-    //DAL.Models.Author should maybe be in its own namespace without the
-    //dbContext. Or replaced by a DTO as the return object. I'm not sure.
+    //I'm switching things up to a persistence-ignorant approach,
+    //so none of this works anymore as written
     class AuthorService
     {
         public IList<Author> GetAuthors()
