@@ -13,6 +13,7 @@ namespace ReadingList.Controllers
 {
     public class LibraryController : Controller
     {
+        //now to eliminate this next...
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Library

@@ -1,6 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Data;
+using BLL;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
 using Owin;
+using ReadingList.App_Start; //really not sure these should be here. makes me nervous
+using System.Web.Mvc;
 
 [assembly: OwinStartupAttribute(typeof(ReadingList.Startup))]
 namespace ReadingList
@@ -11,17 +15,20 @@ namespace ReadingList
         {
             var services = new ServiceCollection();
 
-            //this will happen
-            //ConfigureServices(services);
+            ConfigureServices(services);
 
             ConfigureAuth(app);
 
-            services.BuildServiceProvider();
+            var resolver = new DefaultDependencyResolver(services.BuildServiceProvider());
+            DependencyResolver.SetResolver(resolver);
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient(typeof(Models.ApplicationDbContext));
+            services.AddTransient(typeof(UserStore));
+            services.AddTransient(typeof(RoleStore));
+            services.AddTransient(typeof(ApplicationUserManager));
+            services.AddTransient(typeof(ApplicationSignInManager));
         }
     }
 }

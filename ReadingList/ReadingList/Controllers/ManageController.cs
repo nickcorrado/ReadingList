@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using BLL;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -14,7 +15,8 @@ namespace ReadingList.Controllers
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private UserManager<IdentityUser, int> _userManager;
+        //private ApplicationUserManager _userManager;
 
         public ManageController()
         {
@@ -38,7 +40,7 @@ namespace ReadingList.Controllers
             }
         }
 
-        public ApplicationUserManager UserManager
+        public UserManager<IdentityUser, int> UserManager
         {
             get
             {

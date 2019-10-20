@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Entities = DAL.Entities;
+using Data;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security;
 
 namespace BLL
 {
@@ -15,6 +19,13 @@ namespace BLL
         //idk anymore
     }
 
+    //IdentityUser, IdentityRole, UserStore, and RoleStore
+    //are about 90% Tim Schreiber's example implementation in
+    //https://timschreiber.com/2015/01/28/persistence-ignorant-asp-net-identity-with-patterns-part-4/
+    //However, Schreiber wrote his in the web layer, and I
+    //have a business layer. He also did away with the need
+    //for IdentityConfig.cs, while I've brought them into my
+    //service, retailoring them to use IdentityUser, etc.
     public class IdentityUser : IUser<int>
     {
         public IdentityUser()
@@ -22,7 +33,7 @@ namespace BLL
             //TODO ask db for new id
             //maybe not necessary? after all, when the record is created
             //in the db, it will generate a new value anyway
-            Id = 0;
+            //Id = 0;
         }
 
         public IdentityUser(string username) : this()
@@ -34,6 +45,17 @@ namespace BLL
         public string UserName { get; set; }
         public virtual string PasswordHash { get; set; }
         public virtual string SecurityStamp { get; set; }
+        //I strongly suspect I need to add the rest of the fields I want here, since IdentityUser
+        //is going to be used directly throughout the web layer, apparently.
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(ApplicationUserManager manager)
+        {
+            return await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+        }
     }
 
     public class IdentityRole : IRole<int>
@@ -41,7 +63,7 @@ namespace BLL
         public IdentityRole()
         {
             //TODO
-            Id = 0;
+            //Id = 0;
         }
 
         public IdentityRole(string name)
@@ -489,5 +511,99 @@ namespace BLL
             };
         }
         #endregion
+    }
+
+    public class EmailService : IIdentityMessageService
+    {
+        public Task SendAsync(IdentityMessage message)
+        {
+            // Plug in your email service here to send an email.
+            return Task.FromResult(0);
+        }
+    }
+
+    public class SmsService : IIdentityMessageService
+    {
+        public Task SendAsync(IdentityMessage message)
+        {
+            // Plug in your SMS service here to send a text message.
+            return Task.FromResult(0);
+        }
+    }
+
+    // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
+    public class ApplicationUserManager : UserManager<IdentityUser, int>
+    {
+        public ApplicationUserManager(IUserStore<IdentityUser, int> store)
+            : base(store)
+        {
+        }
+
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
+        {
+            //iffy on this
+            var manager = new ApplicationUserManager(new UserStore(new UnitOfWork("DefaultConnection")));
+            // Configure validation logic for usernames
+            manager.UserValidator = new UserValidator<IdentityUser, int>(manager)
+            {
+                AllowOnlyAlphanumericUserNames = false,
+                RequireUniqueEmail = true,
+            };
+
+            // Configure validation logic for passwords
+            manager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 6,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = true,
+                RequireLowercase = true,
+                RequireUppercase = true,
+            };
+
+            // Configure user lockout defaults
+            manager.UserLockoutEnabledByDefault = true;
+            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+
+            // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
+            // You can write your own provider and plug it in here.
+            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<IdentityUser, int>
+            {
+                MessageFormat = "Your security code is {0}"
+            });
+            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<IdentityUser, int>
+            {
+                Subject = "Security Code",
+                BodyFormat = "Your security code is {0}"
+            });
+            manager.EmailService = new EmailService();
+            manager.SmsService = new SmsService();
+            var dataProtectionProvider = options.DataProtectionProvider;
+            if (dataProtectionProvider != null)
+            {
+                manager.UserTokenProvider =
+                    new DataProtectorTokenProvider<IdentityUser, int>(dataProtectionProvider.Create("ASP.NET Identity"));
+            }
+            return manager;
+        }
+    }
+
+    // Configure the application sign-in manager which is used in this application.
+    public class ApplicationSignInManager : SignInManager<IdentityUser, int>
+    {
+        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
+            : base(userManager, authenticationManager)
+        {
+        }
+
+        public override Task<ClaimsIdentity> CreateUserIdentityAsync(IdentityUser user)
+        {
+            return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
+        }
+
+        public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
+        {
+            return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+        }
     }
 }
