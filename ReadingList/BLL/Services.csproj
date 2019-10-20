@@ -72,9 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
+    <ProjectReference Include="..\DAL\Core.csproj">
       <Project>{a3fcbcd9-4a02-44fc-abe2-110c9f6d6fd2}</Project>
-      <Name>DAL</Name>
+      <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{38A403CD-6284-43A6-ACAC-CEE855A681FA}</Project>
