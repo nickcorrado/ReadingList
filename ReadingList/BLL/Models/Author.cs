@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Models
+namespace Services.Models
 {
     //I'm thinking that models in the business layer can have non-mapped
     //properties and other sorts of things not seen in the data layer

@@ -1,5 +1,5 @@
-﻿using DAL;
-using DAL.Repositories;
+﻿using Core;
+using Core.Repositories;
 using Data.Repositories;
 using System;
 using System.Collections.Generic;

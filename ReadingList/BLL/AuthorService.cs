@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Entities;
+using Core.Entities;
 
-namespace BLL
+namespace Services
 {
     //I'm switching things up to a persistence-ignorant approach,
     //so none of this works anymore as written

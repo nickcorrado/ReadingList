@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DAL.Repositories
+namespace Core.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class
     {

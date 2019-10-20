@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using DAL.Entities;
+using Core.Entities;
 
-namespace DAL.Repositories
+namespace Core.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {

@@ -8,13 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using ReadingList.Models;
 using Microsoft.AspNet.Identity;
+using Services;
 
 namespace ReadingList.Controllers
 {
     public class LibraryController : Controller
     {
-        //now to eliminate this next...
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private UserBookService _userBookService;
+        //ApplicationDbContext db = new ApplicationDbContext();
+
+        //Dependency injection!
+        public LibraryController(UserBookService userBookService)
+        {
+            _userBookService = userBookService;
+        }
 
         // GET: Library
         [Authorize]

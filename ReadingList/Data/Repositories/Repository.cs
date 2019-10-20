@@ -1,4 +1,4 @@
-﻿using DAL.Repositories;
+﻿using Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

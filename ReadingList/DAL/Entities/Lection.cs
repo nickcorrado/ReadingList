@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace DAL.Entities
+namespace Core.Entities
 {
     //An obscure word meaning an act of reading.
     public class Lection

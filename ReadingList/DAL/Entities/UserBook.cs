@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace DAL.Entities
+namespace Core.Entities
 {
     ////A workaround to have Displayable enum values
     //public enum Status
