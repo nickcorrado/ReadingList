@@ -18,7 +18,7 @@ namespace Services
         public int UserId { get; set; }
         public int BookId { get; set; }
         public int? Priority { get; set; }
-        public decimal? Rating { get; set; }
+        public float? Rating { get; set; }
         public DateTime DateAdded { get; set; }
     }
 }

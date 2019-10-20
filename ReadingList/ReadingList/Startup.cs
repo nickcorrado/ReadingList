@@ -29,6 +29,7 @@ namespace ReadingList
             services.AddTransient(typeof(RoleStore));
             services.AddTransient(typeof(ApplicationUserManager));
             services.AddTransient(typeof(ApplicationSignInManager));
+
             services.AddTransient(typeof(UserBookService));
         }
     }

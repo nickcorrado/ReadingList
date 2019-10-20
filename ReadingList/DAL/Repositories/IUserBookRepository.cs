@@ -10,8 +10,8 @@ namespace Core.Repositories
 {
     public interface IUserBookRepository : IRepository<UserBook>
     {
-        UserBook FindByUserId(int userId);
-        Task<UserBook> FindByUserIdAsync(int userId);
-        Task<UserBook> FindByUserIdAsync(CancellationToken cancellationToken, int userId);
+        List<UserBook> FindByUserId(int userId);
+        Task<List<UserBook>> FindByUserIdAsync(int userId);
+        Task<List<UserBook>> FindByUserIdAsync(CancellationToken cancellationToken, int userId);
     }
 }

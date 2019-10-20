@@ -23,6 +23,7 @@ namespace Data
         internal IDbSet<Author> Authors { get; set; }
         internal IDbSet<Tag> Tags { get; set; }
         internal IDbSet<Book> Books { get; set; }
+        internal IDbSet<UserBook> UserBooks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
