@@ -8,7 +8,7 @@ namespace BLL.Models
 {
     //I'm thinking that models in the business layer can have non-mapped
     //properties and other sorts of things not seen in the data layer
-    class Author
+    public class Author
     {
         public int AuthorId { get; set; }
 
