@@ -13,9 +13,8 @@ namespace ReadingList.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-        private ApplicationSignInManager _signInManager;
+        private SignInManager<IdentityUser, int> _signInManager;
         private UserManager<IdentityUser, int> _userManager;
-        //private ApplicationUserManager _userManager;
 
         public ManageController()
         {
@@ -27,7 +26,7 @@ namespace ReadingList.Controllers
             SignInManager = signInManager;
         }
 
-        public ApplicationSignInManager SignInManager
+        public SignInManager<IdentityUser, int> SignInManager
         {
             get
             {
