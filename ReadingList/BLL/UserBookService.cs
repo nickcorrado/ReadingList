@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,12 @@ namespace Services
 {
     public class UserBookService
     {
+        private IUnitOfWork _unitOfWork;
 
+        public UserBookService(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
     }
 
     //I think I need these?
