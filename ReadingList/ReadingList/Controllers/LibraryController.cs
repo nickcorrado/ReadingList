@@ -10,7 +10,7 @@ namespace ReadingList.Controllers
 {
     public class LibraryController : Controller
     {
-        private UserBookService _userBookService;
+        private readonly UserBookService _userBookService;
         //ApplicationDbContext db = new ApplicationDbContext();
 
         //Dependency injection!

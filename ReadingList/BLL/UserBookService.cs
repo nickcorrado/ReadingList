@@ -5,7 +5,7 @@ namespace Services
 {
     public class UserBookService
     {
-        private IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
         public UserBookService(IUnitOfWork unitOfWork)
         {
