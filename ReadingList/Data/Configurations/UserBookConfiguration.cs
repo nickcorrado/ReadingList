@@ -34,6 +34,9 @@ namespace Data.Configurations
                 .IsOptional();
 
             //relationships go here
+            //I'm thinking that the UserBookTags definition is actually pointless
+            //what we really want is just UserBooks and Tags and configure a many
+            //to many relationship between the two, and EF will do the rest.
         }
     }
 }
