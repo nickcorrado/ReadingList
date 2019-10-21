@@ -74,10 +74,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\DAL\Core.csproj">
-      <Project>{A3FCBCD9-4A02-44FC-ABE2-110C9F6D6FD2}</Project>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{a3fcbcd9-4a02-44fc-abe2-110c9f6d6fd2}</Project>
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>

@@ -7,8 +7,8 @@
     <ProjectGuid>{9860FDDB-D782-448B-BE71-592DDBB6917F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -73,7 +73,7 @@
     <Compile Include="SmsService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\Core.csproj">
+    <ProjectReference Include="..\Core\Core.csproj">
       <Project>{a3fcbcd9-4a02-44fc-abe2-110c9f6d6fd2}</Project>
       <Name>Core</Name>
     </ProjectReference>

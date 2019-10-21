@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Core.Entities;
+using Microsoft.AspNet.Identity;
 using Services;
 using System.Data;
 using System.Data.Entity;

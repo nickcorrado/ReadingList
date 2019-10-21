@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "ReadingList\Web.csproj", "{3CDE7EAA-603E-44F7-B5B0-93D28C817B00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{3CDE7EAA-603E-44F7-B5B0-93D28C817B00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "DAL\Core.csproj", "{A3FCBCD9-4A02-44FC-ABE2-110C9F6D6FD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{A3FCBCD9-4A02-44FC-ABE2-110C9F6D6FD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "BLL\Services.csproj", "{9860FDDB-D782-448B-BE71-592DDBB6917F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{9860FDDB-D782-448B-BE71-592DDBB6917F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{38A403CD-6284-43A6-ACAC-CEE855A681FA}"
 EndProject
