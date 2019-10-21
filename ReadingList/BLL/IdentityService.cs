@@ -512,24 +512,6 @@ namespace Services
         #endregion
     }
 
-    public class EmailService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
-        }
-    }
-
-    public class SmsService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Plug in your SMS service here to send a text message.
-            return Task.FromResult(0);
-        }
-    }
-
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
     public class ApplicationUserManager : UserManager<IdentityUser, int>
     {
@@ -540,7 +522,8 @@ namespace Services
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            //iffy on this
+            //iffy on this; I need the userstore or the unit of work or something to be passed in
+            //according to DI, so I'm not using the connection string name
             var manager = new ApplicationUserManager(new UserStore(new UnitOfWork("DefaultConnection")));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<IdentityUser, int>(manager)
