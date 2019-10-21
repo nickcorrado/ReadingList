@@ -22,14 +22,14 @@ namespace Data.Repositories
             return Set.FirstOrDefault(x => x.Name == roleName);
         }
 
-        public Task<Role> FindByNameAsync(string roleName)
+        public async Task<Role> FindByNameAsync(string roleName)
         {
-            return Set.FirstOrDefaultAsync(x => x.Name == roleName);
+            return await Set.FirstOrDefaultAsync(x => x.Name == roleName);
         }
 
-        public Task<Role> FindByNameAsync(CancellationToken cancellationToken, string roleName)
+        public async Task<Role> FindByNameAsync(CancellationToken cancellationToken, string roleName)
         {
-            return Set.FirstOrDefaultAsync(x => x.Name == roleName, cancellationToken);
+            return await Set.FirstOrDefaultAsync(x => x.Name == roleName, cancellationToken);
         }
     }
 }

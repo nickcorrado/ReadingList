@@ -22,14 +22,14 @@ namespace Data.Repositories
             return Set.FirstOrDefault(x => x.Email == email);
         }
 
-        public Task<User> FindByEmailAsync(string email)
+        public async Task<User> FindByEmailAsync(string email)
         {
-            return Set.FirstOrDefaultAsync(x => x.Email == email);
+            return await Set.FirstOrDefaultAsync(x => x.Email == email);
         }
 
-        public Task<User> FindByEmailAsync(CancellationToken cancellationToken, string email)
+        public async Task<User> FindByEmailAsync(CancellationToken cancellationToken, string email)
         {
-            return Set.FirstOrDefaultAsync(x => x.Email == email, cancellationToken);
+            return await Set.FirstOrDefaultAsync(x => x.Email == email, cancellationToken);
         }
 
         public User FindByUserName(string username)
@@ -37,14 +37,14 @@ namespace Data.Repositories
             return Set.FirstOrDefault(x => x.UserName == username);
         }
 
-        public Task<User> FindByUserNameAsync(string username)
+        public async Task<User> FindByUserNameAsync(string username)
         {
-            return Set.FirstOrDefaultAsync(x => x.UserName == username);
+            return await Set.FirstOrDefaultAsync(x => x.UserName == username);
         }
 
-        public Task<User> FindByUserNameAsync(CancellationToken cancellationToken, string username)
+        public async Task<User> FindByUserNameAsync(CancellationToken cancellationToken, string username)
         {
-            return Set.FirstOrDefaultAsync(x => x.UserName == username, cancellationToken);
+            return await Set.FirstOrDefaultAsync(x => x.UserName == username, cancellationToken);
         }
     }
 }

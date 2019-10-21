@@ -20,6 +20,7 @@ namespace Core.Entities
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        //could still be outfitted with LockedOut and other standard fields
 
         public virtual ICollection<Claim> Claims
         {

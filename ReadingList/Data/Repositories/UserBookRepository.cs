@@ -22,14 +22,14 @@ namespace Data.Repositories
             return Set.Where(x => x.UserId == userId).ToList();
         }
 
-        public Task<List<UserBook>> FindByUserIdAsync(int userId)
+        public async Task<List<UserBook>> FindByUserIdAsync(int userId)
         {
-            return Set.Where(x => x.UserId == userId).ToListAsync();
+            return await Set.Where(x => x.UserId == userId).ToListAsync();
         }
 
-        public Task<List<UserBook>> FindByUserIdAsync(CancellationToken cancellationToken, int userId)
+        public async Task<List<UserBook>> FindByUserIdAsync(CancellationToken cancellationToken, int userId)
         {
-            return Set.Where(x => x.UserId == userId).ToListAsync(cancellationToken);
+            return await Set.Where(x => x.UserId == userId).ToListAsync(cancellationToken);
         }
     }
 }

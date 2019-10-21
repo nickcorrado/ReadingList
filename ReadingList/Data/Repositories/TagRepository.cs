@@ -21,14 +21,14 @@ namespace Data.Repositories
             return Set.FirstOrDefault(x => x.TagName == tagName);
         }
 
-        public Task<Tag> FindByNameAsync(string tagName)
+        public async Task<Tag> FindByNameAsync(string tagName)
         {
-            return Set.FirstOrDefaultAsync(x => x.TagName == tagName);
+            return await Set.FirstOrDefaultAsync(x => x.TagName == tagName);
         }
 
-        public Task<Tag> FindByNameAsync(CancellationToken cancellationToken, string tagName)
+        public async Task<Tag> FindByNameAsync(CancellationToken cancellationToken, string tagName)
         {
-            return Set.FirstOrDefaultAsync(x => x.TagName == tagName, cancellationToken);
+            return await Set.FirstOrDefaultAsync(x => x.TagName == tagName, cancellationToken);
         }
     }
 }

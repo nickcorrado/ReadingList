@@ -39,9 +39,9 @@ namespace Data
 
         public int SaveChanges() => _context.SaveChanges();
 
-        public Task<int> SaveChangesAsync() => _context.SaveChangesAsync();
+        public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
 
-        public Task<int> SaveChangesAsync(CancellationToken cancellationToken) => _context.SaveChangesAsync(cancellationToken);
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken) => await _context.SaveChangesAsync(cancellationToken);
 
         public void Dispose()
         {

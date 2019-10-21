@@ -22,14 +22,14 @@ namespace Data.Repositories
             return Set.FirstOrDefault(x => x.LoginProvider == loginProvider && x.ProviderKey == providerKey);
         }
 
-        public Task<ExternalLogin> GetByProviderAndKeyAsync(string loginProvider, string providerKey)
+        public async Task<ExternalLogin> GetByProviderAndKeyAsync(string loginProvider, string providerKey)
         {
-            return Set.FirstOrDefaultAsync(x => x.LoginProvider == loginProvider && x.ProviderKey == providerKey);
+            return await Set.FirstOrDefaultAsync(x => x.LoginProvider == loginProvider && x.ProviderKey == providerKey);
         }
 
-        public Task<ExternalLogin> GetByProviderAndKeyAsync(CancellationToken cancellationToken, string loginProvider, string providerKey)
+        public async Task<ExternalLogin> GetByProviderAndKeyAsync(CancellationToken cancellationToken, string loginProvider, string providerKey)
         {
-            return Set.FirstOrDefaultAsync(x => x.LoginProvider == loginProvider && x.ProviderKey == providerKey, cancellationToken);
+            return await Set.FirstOrDefaultAsync(x => x.LoginProvider == loginProvider && x.ProviderKey == providerKey, cancellationToken);
         }
     }
 }
