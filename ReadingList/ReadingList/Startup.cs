@@ -1,9 +1,8 @@
-﻿using Data;
-using Services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
 using Owin;
 using ReadingList.App_Start; //really not sure this should be here. makes me nervous
+using Services;
 using System.Web.Mvc;
 
 [assembly: OwinStartupAttribute(typeof(ReadingList.Startup))]

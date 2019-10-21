@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity;
+using Services;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using ReadingList.Models;
-using Microsoft.AspNet.Identity;
-using Services;
 
 namespace ReadingList.Controllers
 {

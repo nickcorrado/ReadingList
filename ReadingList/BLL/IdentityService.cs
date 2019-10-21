@@ -1,16 +1,15 @@
 ﻿using Core;
-using Entities = Core.Entities;
 using Data;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
-using Microsoft.Owin.Security;
+using Entities = Core.Entities;
 
 namespace Services
 {
@@ -84,7 +83,7 @@ namespace Services
     public class UserStore : IUserLoginStore<IdentityUser, int>, IUserClaimStore<IdentityUser, int>, IUserRoleStore<IdentityUser, int>, IUserPasswordStore<IdentityUser, int>, IUserSecurityStampStore<IdentityUser, int>, IUserStore<IdentityUser, int>, IDisposable
     {
         private readonly IUnitOfWork _unitOfWork;
-        
+
         public UserStore(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;

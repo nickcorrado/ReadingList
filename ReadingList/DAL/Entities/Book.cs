@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Core.Entities
 {
@@ -16,7 +12,7 @@ namespace Core.Entities
 
         //[Required]
         public string PublicationType { get; set; }
-        
+
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }
         public virtual ICollection<UserBook> UserBooks { get; set; }
     }
