@@ -42,6 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\AuthorDTO.cs" />
+    <Compile Include="DTO\BookDTO.cs" />
+    <Compile Include="DTO\BookAuthorDTO.cs" />
+    <Compile Include="DTO\ClaimDTO.cs" />
+    <Compile Include="DTO\ExternalLoginDTO.cs" />
+    <Compile Include="DTO\LectionDTO.cs" />
+    <Compile Include="DTO\RoleDTO.cs" />
+    <Compile Include="DTO\TagDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="DTO\UserBookDTO.cs" />
+    <Compile Include="DTO\UserBookTagDTO.cs" />
     <Compile Include="Entities\Claim.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Role.cs" />
