@@ -5,6 +5,14 @@ namespace Core.Entities
 {
     public class Author
     {
+        public Author(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+
+            BookAuthors = new HashSet<BookAuthor>();
+        }
+
         public Author()
         {
             BookAuthors = new HashSet<BookAuthor>();

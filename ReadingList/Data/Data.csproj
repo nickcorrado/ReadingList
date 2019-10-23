@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Configurations\AuthorConfiguration.cs" />
+    <Compile Include="Configurations\BookConfiguration.cs" />
     <Compile Include="Configurations\ClaimConfiguration.cs" />
     <Compile Include="Configurations\ExternalLoginConfiguration.cs" />
     <Compile Include="Configurations\RoleConfiguration.cs" />

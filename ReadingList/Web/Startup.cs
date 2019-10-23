@@ -1,4 +1,5 @@
 ﻿using Core.Services;
+using Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
 using Owin;
@@ -25,6 +26,8 @@ namespace Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient(typeof(UnitOfWork));
+
             services.AddTransient(typeof(UserStore));
             services.AddTransient(typeof(RoleStore));
             services.AddTransient(typeof(ApplicationUserManager));

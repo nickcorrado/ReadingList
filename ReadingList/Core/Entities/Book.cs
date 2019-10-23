@@ -4,6 +4,15 @@ namespace Core.Entities
 {
     public class Book
     {
+        public Book(string title, string publicationType)
+        {
+            Title = title;
+            PublicationType = publicationType;
+
+            BookAuthors = new HashSet<BookAuthor>();
+            UserBooks = new HashSet<UserBook>();
+        }
+
         public int BookId { get; set; }
 
         //[Required]
