@@ -17,6 +17,10 @@ namespace Core.Entities
 
     public class UserBook
     {
+        //I actually don't know how to write a
+        //constructor for this. Do we pass in
+        //ids? DateAdded, at least, needs to be
+        //privately set
         public int UserBookId { get; set; }
         public int UserId { get; set; }
         public int BookId { get; set; }
@@ -30,7 +34,7 @@ namespace Core.Entities
         //[Required]
         //[DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateAdded { get; set; }
+        public DateTime DateAdded { get; private set; }
         public virtual User User { get; set; }
         public virtual Book Book { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }

@@ -32,7 +32,6 @@ namespace Data.Configurations
                 .HasColumnType("float")
                 .IsOptional();
 
-            //relationships go here
             HasMany(x => x.Tags)
                 .WithMany(x => x.UserBooks)
                 .Map(x =>

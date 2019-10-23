@@ -11,15 +11,9 @@ namespace Core.Services
             _unitOfWork = unitOfWork;
         }
 
-        //I think this is how this goes? We can do business logic in methods like this
         public void AddAuthor(string firstName, string lastName)
         {
-            _unitOfWork.AuthorRepository.Add(new Author
-            {
-                FirstName = firstName,
-                LastName = lastName,
-                CreateDate = DateTime.Now,
-            });
+            _unitOfWork.AuthorRepository.Add(new Author(firstName, lastName));
         }
     }
 }

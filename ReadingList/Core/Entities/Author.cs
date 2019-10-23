@@ -9,12 +9,8 @@ namespace Core.Entities
         {
             FirstName = firstName;
             LastName = lastName;
+            CreateDate = DateTime.Now;
 
-            BookAuthors = new HashSet<BookAuthor>();
-        }
-
-        public Author()
-        {
             BookAuthors = new HashSet<BookAuthor>();
         }
 
@@ -28,8 +24,10 @@ namespace Core.Entities
         //[StringLength(35)]
         public string FirstName { get; set; }
 
+        //I'm not certain I want a create date. If I do, it might go on
+        //every table.
         //[Required]
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; private set; }
 
         public virtual ICollection<BookAuthor> BookAuthors { get; set; }
     }
