@@ -7,13 +7,14 @@ namespace Core.Entities
     public class Lection
     {
         //we used to have a constructor defaulting this to English; may want to bring that back
-        public Lection(DateTime dateStarted, DateTime dateFinished, string language, string format, int? pagecount)
+        public Lection(DateTime dateStarted, DateTime dateFinished, string language, string format, int? pagecount, int? rating)
         {
             DateStarted = dateStarted;
             DateFinished = dateFinished;
             Language = language;
             Format = format;
             PageCount = pagecount;
+            Rating = rating;
         }
 
         public int LectionId { get; set; }

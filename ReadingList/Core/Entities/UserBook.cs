@@ -14,7 +14,6 @@ namespace Core.Entities
     //    WillReread
     //}
 
-
     public class UserBook
     {
         //I actually don't know how to write a
@@ -24,8 +23,10 @@ namespace Core.Entities
         public int UserBookId { get; set; }
         public int UserId { get; set; }
         public int BookId { get; set; }
+        //Would like to turn this into a lookup table
         //[Required]
         //public Status Status { get; set; }
+        public string Status { get; set; }
 
         //[Range(1, int.MaxValue)]
         public int? Priority { get; set; }
