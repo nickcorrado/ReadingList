@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ReadingList.Models
+namespace Web.Models
 {
     public class Tag
     {

@@ -29,5 +29,20 @@ namespace Data.Repositories
         {
             return await Set.Where(x => x.UserId == userId).ToListAsync(cancellationToken);
         }
+
+        public List<UserBook> GetUserBooksAndBooks(int userId)
+        {
+            return Set.Where(x => x.UserId == userId).Include(x => x.Book).ToList();
+        }
+
+        public async Task<List<UserBook>> GetUserBooksAndBooksAsync(int userId)
+        {
+            return await Set.Where(x => x.UserId == userId).Include(x => x.Book).ToListAsync();
+        }
+
+        public async  Task<List<UserBook>> GetUserBooksAndBooksAsync(CancellationToken cancellationToken, int userId)
+        {
+            return await Set.Where(x => x.UserId == userId).Include(x => x.Book).ToListAsync();
+        }
     }
 }
