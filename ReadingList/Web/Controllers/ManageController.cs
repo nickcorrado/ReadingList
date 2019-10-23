@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using ReadingList.Models;
+using Web.ViewModels;
 using Services;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ReadingList.Controllers
+namespace Web.Controllers
 {
     [Authorize]
     public class ManageController : Controller

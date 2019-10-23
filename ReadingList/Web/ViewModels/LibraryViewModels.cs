@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ReadingList.Models
+namespace Web.ViewModels
 {
     public class LibraryViewModel
     {

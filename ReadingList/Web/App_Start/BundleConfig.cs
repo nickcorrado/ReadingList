@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace ReadingList
+namespace Web
 {
     public class BundleConfig
     {

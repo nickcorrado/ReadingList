@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace ReadingList.Controllers
+namespace Web.Controllers
 {
     public class HomeController : Controller
     {

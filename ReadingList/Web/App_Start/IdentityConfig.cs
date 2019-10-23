@@ -1,4 +1,4 @@
-﻿namespace ReadingList
+﻿namespace Web
 {
     //public class EmailService : IIdentityMessageService
     //{

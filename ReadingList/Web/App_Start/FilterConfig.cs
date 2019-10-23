@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace ReadingList
+namespace Web
 {
     public class FilterConfig
     {

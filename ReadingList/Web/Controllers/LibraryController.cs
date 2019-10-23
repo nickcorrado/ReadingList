@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Services;
 using Microsoft.AspNet.Identity;
 using System.Data;
 using System.Data.Entity;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
-namespace ReadingList.Controllers
+namespace Web.Controllers
 {
     public class LibraryController : Controller
     {

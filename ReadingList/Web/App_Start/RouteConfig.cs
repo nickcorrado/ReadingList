@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace ReadingList
+namespace Web
 {
     public class RouteConfig
     {

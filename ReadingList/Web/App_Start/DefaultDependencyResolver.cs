@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace ReadingList.App_Start
+namespace Web.App_Start
 {
     //based on https://stackoverflow.com/questions/43311099/how-to-create-dependency-injection-for-asp-net-mvc-5
     public class DefaultDependencyResolver : IDependencyResolver

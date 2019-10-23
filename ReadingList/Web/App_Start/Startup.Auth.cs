@@ -6,7 +6,7 @@ using Owin;
 using Services;
 using System;
 
-namespace ReadingList
+namespace Web
 {
     public partial class Startup
     {

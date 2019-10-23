@@ -27,16 +27,20 @@ namespace Data.Configurations
                 .HasColumnType("int")
                 .IsOptional();
 
-            //how do I set decimal precision of a nullable float?
             Property(x => x.Rating)
                 .HasColumnName("Rating")
                 .HasColumnType("float")
                 .IsOptional();
 
             //relationships go here
-            //I'm thinking that the UserBookTags definition is actually pointless
-            //what we really want is just UserBooks and Tags and configure a many
-            //to many relationship between the two, and EF will do the rest.
+            HasMany(x => x.Tags)
+                .WithMany(x => x.UserBooks)
+                .Map(x =>
+                {
+                    x.ToTable("UserBookTags");
+                    x.MapLeftKey("UserBookId");
+                    x.MapRightKey("TagId");
+                });
         }
     }
 }

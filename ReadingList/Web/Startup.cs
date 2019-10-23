@@ -1,12 +1,13 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Core.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
 using Owin;
-using ReadingList.App_Start; //really not sure this should be here. makes me nervous
+using Web.App_Start; //really not sure this should be here. makes me nervous
 using Services;
 using System.Web.Mvc;
 
-[assembly: OwinStartupAttribute(typeof(ReadingList.Startup))]
-namespace ReadingList
+[assembly: OwinStartupAttribute(typeof(Web.Startup))]
+namespace Web
 {
     public partial class Startup
     {

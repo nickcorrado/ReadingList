@@ -2,7 +2,7 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace ReadingList
+namespace Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
