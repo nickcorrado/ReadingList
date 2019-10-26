@@ -17,9 +17,23 @@ namespace Core.Entities
     public class UserBook
     {
         //I actually don't know how to write a
-        //constructor for this. Do we pass in
-        //ids? DateAdded, at least, needs to be
-        //privately set
+        //constructor for this. Do we pass in ids? 
+        //DateAdded, at least, needs privately set
+        //eShopOnWeb passes in ids, so we will, too
+
+        //I really feel, though, like we need an
+        //aggregate for user books, so that the
+        //list of authors, status, priority, rating,
+        //etc. can all be added at once
+        public UserBook(int userId, int bookId, string status, int? priority, float? rating)
+        {
+            UserId = userId;
+            BookId = bookId;
+            Status = status;
+            Priority = priority;
+            Rating = rating;
+            DateAdded = DateTime.Now;
+        }
         public int UserBookId { get; set; }
         public int UserId { get; set; }
         public int BookId { get; set; }

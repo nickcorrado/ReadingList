@@ -3,9 +3,9 @@ using Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
 using Owin;
-using Web.App_Start; //really not sure this should be here. makes me nervous
 using Services;
 using System.Web.Mvc;
+using Web.App_Start; //really not sure this should be here. makes me nervous
 
 [assembly: OwinStartupAttribute(typeof(Web.Startup))]
 namespace Web

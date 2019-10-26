@@ -56,10 +56,11 @@
     <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Interfaces\IAggregateRoot.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Entities\Author.cs" />
-    <Compile Include="Entities\Book.cs" />
-    <Compile Include="Entities\BookAuthor.cs" />
+    <Compile Include="Entities\BookAggregate\Book.cs" />
+    <Compile Include="Entities\BookAggregate\BookAuthor.cs" />
     <Compile Include="Entities\Lection.cs" />
     <Compile Include="Entities\Tag.cs" />
     <Compile Include="Entities\UserBook.cs" />

@@ -40,7 +40,7 @@ namespace Data.Repositories
             return await Set.Where(x => x.UserId == userId).Include(x => x.Book).ToListAsync();
         }
 
-        public async  Task<List<UserBook>> GetUserBooksAndBooksAsync(CancellationToken cancellationToken, int userId)
+        public async Task<List<UserBook>> GetUserBooksAndBooksAsync(CancellationToken cancellationToken, int userId)
         {
             return await Set.Where(x => x.UserId == userId).Include(x => x.Book).ToListAsync();
         }
