@@ -17,7 +17,7 @@ namespace Core.Entities
     public class UserBook
     {
         //I actually don't know how to write a
-        //constructor for this. Do we pass in ids? 
+        //constructor for this. Do we pass in ids?
         //DateAdded, at least, needs privately set
         //eShopOnWeb passes in ids, so we will, too
 

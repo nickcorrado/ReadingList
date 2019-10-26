@@ -1,15 +1,10 @@
-﻿namespace Core.Entities
+﻿namespace Core.Entities.BookAggregate
 {
-    //public enum Role
-    //{
-    //    Author, Editor, Compiler, Translator
-    //}
-
     public class BookAuthor
     {
-        public BookAuthor(string role)
+        public BookAuthor(int roleId)
         {
-            AuthorRole = role;
+            AuthorRoleId = roleId;
         }
 
         public int BookAuthorId { get; set; }
@@ -18,10 +13,10 @@
         //[Required]
         public int AuthorId { get; set; }
         //[Required]
-        //public Role Role { get; set; }
-        public string AuthorRole { get; set; }
+        public int AuthorRoleId { get; set; }
 
         public virtual Book Book { get; set; }
         public virtual Author Author { get; set; }
+        public virtual AuthorRole AuthorRole { get; set; }
     }
 }

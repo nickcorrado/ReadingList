@@ -3,10 +3,11 @@
 namespace Core.Entities
 {
     //An obscure word meaning an act of reading.
+    //Might rename to UserBookHistory
     public class Lection
     {
         //we used to have a constructor defaulting this to English; may want to bring that back
-        public Lection(DateTime dateStarted, DateTime dateFinished, string language, string format, int? pagecount, int? rating)
+        public Lection(DateTime dateStarted, DateTime? dateFinished, string language, string format, int? pagecount, int? rating)
         {
             DateStarted = dateStarted;
             DateFinished = dateFinished;

@@ -52,13 +52,14 @@
     <Compile Include="DTO\TagDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\UserBookDTO.cs" />
+    <Compile Include="Entities\BookAggregate\AuthorRole.cs" />
     <Compile Include="Entities\Claim.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Interfaces\IAggregateRoot.cs" />
     <Compile Include="IUnitOfWork.cs" />
-    <Compile Include="Entities\Author.cs" />
+    <Compile Include="Entities\BookAggregate\Author.cs" />
     <Compile Include="Entities\BookAggregate\Book.cs" />
     <Compile Include="Entities\BookAggregate\BookAuthor.cs" />
     <Compile Include="Entities\Lection.cs" />

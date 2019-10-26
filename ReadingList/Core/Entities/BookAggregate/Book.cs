@@ -1,7 +1,7 @@
 ﻿using Core.Interfaces;
 using System.Collections.Generic;
 
-namespace Core.Entities
+namespace Core.Entities.BookAggregate
 {
     public class Book : IAggregateRoot
     {
