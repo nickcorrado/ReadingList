@@ -1,31 +1,17 @@
-﻿using System;
+﻿using Core.Entities.BookAggregate;
+using System;
 using System.Collections.Generic;
 
 namespace Core.Entities
 {
-    ////A workaround to have Displayable enum values
-    //public enum Status
-    //{
-    //    [Display(Name = "Unread")]
-    //    Unread,
-    //    [Display(Name = "Have read")]
-    //    Read,
-    //    [Display(Name = "Will reread")]
-    //    WillReread
-    //}
-
     public class UserBook
     {
         //I actually don't know how to write a
         //constructor for this. Do we pass in ids?
-        //DateAdded, at least, needs privately set
         //eShopOnWeb passes in ids, so we will, too
 
-        //I really feel, though, like we need an
-        //aggregate for user books, so that the
-        //list of authors, status, priority, rating,
-        //etc. can all be added at once
-        public UserBook(int userId, int bookId, string status, int? priority, float? rating)
+        //Not sure that passing the enum in is the right call
+        public UserBook(int userId, int bookId, UserBookStatus status, int? priority, float? rating)
         {
             UserId = userId;
             BookId = bookId;
@@ -37,10 +23,7 @@ namespace Core.Entities
         public int UserBookId { get; set; }
         public int UserId { get; set; }
         public int BookId { get; set; }
-        //Would like to turn this into a lookup table
-        //[Required]
-        //public Status Status { get; set; }
-        public string Status { get; set; }
+        public UserBookStatus Status { get; set; }
 
         //[Range(1, int.MaxValue)]
         public int? Priority { get; set; }

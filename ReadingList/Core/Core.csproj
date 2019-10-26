@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\AuthorDTO.cs" />
+    <Compile Include="DTO\AuthorRoleDTO.cs" />
     <Compile Include="DTO\BookDTO.cs" />
     <Compile Include="DTO\BookAuthorDTO.cs" />
     <Compile Include="DTO\ClaimDTO.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserBookStatus.cs" />
     <Compile Include="Interfaces\IAggregateRoot.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Entities\BookAggregate\Author.cs" />

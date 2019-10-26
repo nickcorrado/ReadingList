@@ -3,7 +3,7 @@
 namespace Core.Entities
 {
     //An obscure word meaning an act of reading.
-    //Might rename to UserBookHistory
+    //Might rename this UserBookHistory
     public class Lection
     {
         //we used to have a constructor defaulting this to English; may want to bring that back

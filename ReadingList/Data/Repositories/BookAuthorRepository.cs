@@ -1,6 +1,4 @@
-﻿using Core.Entities;
-
-namespace Data.Repositories
+﻿namespace Data.Repositories
 {
     internal class BookAuthorRepository : Repository<BookAuthor>
     {

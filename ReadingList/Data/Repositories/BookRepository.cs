@@ -1,5 +1,4 @@
-﻿using Core.Entities;
-using Core.Repositories;
+﻿using Core.Repositories;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
