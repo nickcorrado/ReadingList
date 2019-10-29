@@ -7,6 +7,10 @@ namespace Core.Entities.BookAggregate
     {
         public Author(string firstName, string lastName)
         {
+            if (string.IsNullOrWhiteSpace(firstName))
+                throw new ArgumentException("First name cannot be null.", nameof(firstName));
+            //last name can be null; suppose the author is Plato
+
             FirstName = firstName;
             LastName = lastName;
             CreateDate = DateTime.Now;

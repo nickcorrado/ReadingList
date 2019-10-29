@@ -1,4 +1,5 @@
 ﻿using Core.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Core.Entities.BookAggregate
@@ -7,6 +8,16 @@ namespace Core.Entities.BookAggregate
     {
         public Book(string title, string publicationType, List<BookAuthor> bookAuthors)
         {
+            //I think exception-level validation should occur here, in the domain model
+            //It's distinct from annotations-style validation on Web ViewModels
+            if (string.IsNullOrWhiteSpace(title))
+                throw new ArgumentException("Title cannot be null.", nameof(title));
+            if (string.IsNullOrWhiteSpace(publicationType))
+                throw new ArgumentException("Publication type cannot be null.", nameof(publicationType));
+
+            if (title.Length > 120)
+                throw new ArgumentException("Title cannot be greater than 120 characters.", nameof(title));
+
             Title = title;
             PublicationType = publicationType;
             _bookAuthors = bookAuthors;
