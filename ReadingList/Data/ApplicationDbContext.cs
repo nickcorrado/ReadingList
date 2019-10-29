@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Entities.BookAggregate;
 using Data.Configurations;
 using System.Data.Entity;
 
@@ -11,6 +12,8 @@ namespace Data
         }
 
         //why no Claims?
+        //I guess the reason is just that claims aren't a proper table;
+        //in the default implementation we just have UserClaims
         internal IDbSet<User> Users { get; set; }
         internal IDbSet<Role> Roles { get; set; }
         internal IDbSet<ExternalLogin> ExternalLogins { get; set; }

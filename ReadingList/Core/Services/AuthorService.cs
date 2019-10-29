@@ -1,4 +1,6 @@
-﻿namespace Core.Services
+﻿using Core.Entities.BookAggregate;
+
+namespace Core.Services
 {
     public class AuthorService
     {

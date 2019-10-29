@@ -1,4 +1,6 @@
-﻿namespace Data.Repositories
+﻿using Core.Entities.BookAggregate;
+
+namespace Data.Repositories
 {
     internal class BookAuthorRepository : Repository<BookAuthor>
     {

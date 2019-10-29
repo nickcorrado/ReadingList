@@ -1,4 +1,5 @@
-﻿using Core.Repositories;
+﻿using Core.Entities.BookAggregate;
+using Core.Repositories;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
