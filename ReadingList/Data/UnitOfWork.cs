@@ -1,5 +1,6 @@
 ﻿using Core;
 using Core.Entities;
+using Core.Entities.BookAggregate;
 using Core.Repositories;
 using Data.Repositories;
 using System.Threading;

@@ -28,8 +28,8 @@ namespace Core.Entities.BookAggregate
         //[StringLength(35)]
         public string FirstName { get; set; }
 
-        //I'm not certain I want a create date. If I do, it might go on
-        //every table.
+        //I'm not certain I want a create date, and if I do, it may go on
+        //every table. If so, I'll make a base entity and inherit.
         //[Required]
         public DateTime CreateDate { get; private set; }
 

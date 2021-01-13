@@ -11,12 +11,14 @@ namespace Web.Controllers
 {
     public class LibraryController : Controller
     {
+        private readonly BookService _bookService;
         private readonly UserBookService _userBookService;
         //ApplicationDbContext db = new ApplicationDbContext();
 
         //Dependency injection!
-        public LibraryController(UserBookService userBookService)
+        public LibraryController(UserBookService userBookService, BookService bookService)
         {
+            _bookService = bookService;
             _userBookService = userBookService;
         }
 
@@ -24,8 +26,10 @@ namespace Web.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            //provisional code; I don't know how my services should really look yet
             var userId = User.Identity.GetUserId<int>();
-            var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
+            var userBooks = _userBookService.GetUserBooks(userId);
+            //var userBooks = db.UserBooks.Include(u => u.Book).Where(m => m.UserId == userId);
             return View(userBooks.ToList());
         }
 
@@ -36,7 +40,9 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserBook userBook = db.UserBooks.Find(id);
+            //UserBook userBook = db.UserBooks.Find(id);
+            //I don't love that this is a nullable int
+            var userBook = _userBookService.GetUserBook(id);
             if (userBook == null)
             {
                 return HttpNotFound();
@@ -47,7 +53,8 @@ namespace Web.Controllers
         // GET: Library/Create
         public ActionResult Create()
         {
-            ViewBag.BookId = new SelectList(db.Books, "BookId", "Title");
+            //ViewBag.BookId = new SelectList(db.Books, "BookId", "Title");
+            ViewBag.BookId = new SelectList(_bookService.GetBooks(), "BookId", "Title");
             return View();
         }
 
@@ -60,12 +67,14 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.UserBooks.Add(userBook);
-                db.SaveChanges();
+                _userBookService.CreateUserBook(userBook);
+                //db.UserBooks.Add(userBook);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BookId = new SelectList(db.Books, "BookId", "Title", userBook.BookId);
+            //ViewBag.BookId = new SelectList(db.Books, "BookId", "Title", userBook.BookId);
+            ViewBag.BookId = new SelectList(_bookService.GetBooks(), "BookId", "Title");
             return View(userBook);
         }
 
@@ -76,12 +85,14 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserBook userBook = db.UserBooks.Find(id);
+            //UserBook userBook = db.UserBooks.Find(id);
+            var userBook = _userBookService.GetUserBook(id);
             if (userBook == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.BookId = new SelectList(db.Books, "BookId", "Title", userBook.BookId);
+            //ViewBag.BookId = new SelectList(db.Books, "BookId", "Title", userBook.BookId);
+            ViewBag.BookId = new SelectList(_bookService.GetBooks(), "BookId", "Title");
             return View(userBook);
         }
 
@@ -94,11 +105,13 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(userBook).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(userBook).State = EntityState.Modified;
+                //db.SaveChanges();
+                _userBookService.EditBook(userBook);
                 return RedirectToAction("Index");
             }
-            ViewBag.BookId = new SelectList(db.Books, "BookId", "Title", userBook.BookId);
+            //ViewBag.BookId = new SelectList(db.Books, "BookId", "Title", userBook.BookId);
+            ViewBag.BookId = new SelectList(_bookService.GetBooks(), "BookId", "Title");
             return View(userBook);
         }
 
@@ -109,7 +122,8 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserBook userBook = db.UserBooks.Find(id);
+            //UserBook userBook = db.UserBooks.Find(id);
+            var userBook = _userBookService.GetUserBook(id);
             if (userBook == null)
             {
                 return HttpNotFound();
@@ -122,9 +136,10 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            UserBook userBook = db.UserBooks.Find(id);
-            db.UserBooks.Remove(userBook);
-            db.SaveChanges();
+            //UserBook userBook = db.UserBooks.Find(id);
+            //db.UserBooks.Remove(userBook);
+            //db.SaveChanges();
+            _userBookService.RemoveBook(id);
             return RedirectToAction("Index");
         }
 
@@ -132,7 +147,7 @@ namespace Web.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
             }
             base.Dispose(disposing);
         }

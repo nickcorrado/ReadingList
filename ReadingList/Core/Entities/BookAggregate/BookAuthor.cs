@@ -2,9 +2,11 @@
 {
     public class BookAuthor
     {
-        public BookAuthor(int roleId)
+        public BookAuthor(int roleId, int bookId, int authorId)
         {
             AuthorRoleId = roleId;
+            BookId = bookId;
+            AuthorId = authorId;
         }
 
         public int BookAuthorId { get; set; }

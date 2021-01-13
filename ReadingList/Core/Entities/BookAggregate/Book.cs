@@ -18,6 +18,9 @@ namespace Core.Entities.BookAggregate
             if (title.Length > 120)
                 throw new ArgumentException("Title cannot be greater than 120 characters.", nameof(title));
 
+            if (bookAuthors.Count == 0)
+                throw new ArgumentException("Book must have at least one author.", nameof(bookAuthors));
+
             Title = title;
             PublicationType = publicationType;
             _bookAuthors = bookAuthors;
